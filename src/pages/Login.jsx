@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/axios';
-import { LogIn } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -39,14 +39,14 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
         <div>
-          <div className="mx-auto h-12 w-12 bg-blue-100 flex items-center justify-center rounded-full">
-            <LogIn className="h-6 w-6 text-blue-600" />
+          <div className="mx-auto h-20 w-20 flex items-center justify-center">
+            <img src={logo} alt="ParkirinAzzZ Logo" className="h-full w-auto object-contain" />
           </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign in to your account
+            ParkirinAzzZ
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Sistem Manajemen Parkir
+            Sistem Manajemen Parkir Modern
           </p>
         </div>
         

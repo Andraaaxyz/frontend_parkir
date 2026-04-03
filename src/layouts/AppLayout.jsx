@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, Navigate, useNavigate, useLocation, Link } from 'react-router-dom';
 import { LogOut, Home, Users, DollarSign, Map, Car, FileText, Menu, X, ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import api from '../api/axios';
+import logo from '../assets/logo.png';
 
 const AppLayout = ({ allowedRoles }) => {
   const [user, setUser] = useState(null);
@@ -75,7 +76,10 @@ const AppLayout = ({ allowedRoles }) => {
       {/* Sidebar */}
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex items-center justify-between h-16 px-6 bg-blue-600 text-white">
-          <span className="text-xl font-bold tracking-wider">PARKIR</span>
+          <div className="flex items-center space-x-2">
+            <img src={logo} alt="Logo" className="w-8 h-8 brightness-0 invert" />
+            <span className="text-xl font-bold tracking-wider">ParkirinAzzZ</span>
+          </div>
           <button onClick={() => setSidebarOpen(false)} className="md:hidden">
             <X className="w-6 h-6" />
           </button>
