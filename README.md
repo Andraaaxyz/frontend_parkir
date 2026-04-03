@@ -31,7 +31,3 @@ Aplikasi ini menggunakan sistem *Role-Based Access Control* (RBAC) yang membagi 
 *   **Data Fetching/HTTP Client:** [Axios](https://axios-http.com/)
 *   **Routing / Navigasi:** React State / Components
 *   **Ikon / Grafis:** (Disesuaikan dalam project)
-```bash
-npm run build
-```
-Perintah ini akan membuat folder `build` yang berisi file aplikasi yang sudah diminifikasikan dan dioptimasi kinerjanya.
