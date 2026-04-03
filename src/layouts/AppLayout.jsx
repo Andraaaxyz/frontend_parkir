@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, Navigate, useNavigate, useLocation, Link } from 'react-router-dom';
 import { LogOut, Home, Users, DollarSign, Map, Car, FileText, Menu, X, ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import api from '../api/axios';
-import logo from '../assets/logo.png';
 
 const AppLayout = ({ allowedRoles }) => {
   const [user, setUser] = useState(null);
@@ -76,10 +75,7 @@ const AppLayout = ({ allowedRoles }) => {
       {/* Sidebar */}
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex items-center justify-between h-16 px-6 bg-blue-600 text-white">
-          <div className="flex items-center space-x-2">
-            <img src={logo} alt="Logo" className="w-8 h-8 brightness-0 invert" />
-            <span className="text-xl font-bold tracking-wider">ParkirinAzzZ</span>
-          </div>
+          <span className="text-xl font-bold tracking-wider">ParkirinAzzZ</span>
           <button onClick={() => setSidebarOpen(false)} className="md:hidden">
             <X className="w-6 h-6" />
           </button>
@@ -123,15 +119,9 @@ const AppLayout = ({ allowedRoles }) => {
           <button onClick={() => setSidebarOpen(true)} className="md:hidden mr-4 text-gray-600">
             <Menu className="w-6 h-6" />
           </button>
-          
-          <div className="flex items-center space-x-3">
-            <div className="flex items-center space-x-2 md:hidden">
-               <img src={logo} alt="Logo" className="w-8 h-8" />
-            </div>
-            <h1 className="text-xl font-semibold text-gray-800 capitalize">
-              {roleMenus.find(m => m.path === location.pathname)?.label || 'Dashboard'}
-            </h1>
-          </div>
+          <h1 className="text-xl font-semibold text-gray-800 capitalize">
+            {roleMenus.find(m => m.path === location.pathname)?.label || 'Dashboard'}
+          </h1>
         </header>
 
         <main className="flex-1 overflow-auto p-4 md:p-8 bg-gray-50">
