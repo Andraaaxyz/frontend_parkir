@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# 🚗 Sistem Manajemen Parkir - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ini adalah antarmuka pengguna (Frontend) untuk Sistem Manajemen Parkir berbasis web. Aplikasi ini dibangun menggunakan **React.js** dan **Tailwind CSS**. Aplikasi ini terintegrasi dengan backend API (yang dikembangkan dengan Laravel) untuk mengelola data perparkiran secara *real-time*.
 
-## Available Scripts
+## ✨ Fitur Utama
 
-In the project directory, you can run:
+Aplikasi ini menggunakan sistem *Role-Based Access Control* (RBAC) yang membagi fungsionalitas menjadi 3 peran utama (Admin, Petugas, Owner):
 
-### `npm start`
+*   **🔐 Autentikasi & Otorisasi**
+    *   Halaman login dinamis.
+    *   Proteksi rute berdasarkan peran pengguna setelah berhasil login (Token Based).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*   **👨‍💻 Panel Admin**
+    *   **Dashboard**: Menampilkan ringkasan statistik dan aktivitas terbaru.
+    *   **Manajemen Data Master**: Mengelola data Area Parkir, Tarif, dan pengguna (Petugas/Owner).
+    *   **Log Aktivitas**: Memantau aktivitas atau log dari sistem.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*   **👮‍♂️ Panel Petugas**
+    *   **Dashboard Operasional**: Akses cepat untuk tugas operasional.
+    *   **Manajemen Parkir**: Mencatat kendaraan masuk dan menghitung secara otomatis biaya kendaraan keluar.
+    *   **Daftar Kendaraan**: Melihat riwayat lengkap kendaraan yang sedang parkir atau yang sudah keluar.
 
-### `npm test`
+*   **📊 Panel Owner (Pemilik)**
+    *   **Dashboard Ringkasan**: Melihat statistik total pendapatan.
+    *   **Laporan Pendapatan**: Melihat riwayat transaksi dan detail pendapatan.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Teknologi yang Digunakan
 
-### `npm run build`
+*   **Framework/Library:** [React.js](https://reactjs.org/)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+*   **Data Fetching/HTTP Client:** [Axios](https://axios-http.com/)
+*   **Routing / Navigasi:** React State / Components
+*   **Ikon / Grafis:** (Disesuaikan dalam project)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Panduan Instalasi & Menjalankan Project secara Lokal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Sebelum memulai, pastikan kamu telah menginstal **Node.js** di sistem yang digunakan.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Clone Repository
+```bash
+git clone https://github.com/Andraaaxyz/frontend_parkir.git
+cd frontend_parkir
+```
 
-### `npm run eject`
+### 2. Install Dependensi (Packages)
+Jalankan perintah ini untuk mengunduh semua package yang diperlukan oleh React dan Tailwind:
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. Konfigurasi Endpoint Backend
+Secara bawaan, aplikasi ini akan mencoba berkomunikasi dengan backend Laravel. Pastikan konfigurasi *Base URL* di folder `src/api` telah mengarah ke server lokal Laravel kamu (Contoh URL bawaan: `http://localhost:8000/api` atau sesuai setup).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Jalankan Aplikasi di Mode Development
+```bash
+npm start
+```
+Browser akan secara otomatis membuka apilkasi di `http://localhost:3000`. Jika kamu melakukan perubahan pada source code, halaman browser akan otomatis dimuat ulang (*hot-reload*).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📂 Gambaran Struktur Folder
 
-## Learn More
+```text
+src/
+├── api/            # Konfigurasi instance Axios untuk komunikasi HTTP dengan Backend
+├── components/     # UI Component Reusable (seperti Card, Modal, Tabel)
+├── layouts/        # Layout rangka halaman (Sidebar, Header untuk masing-masing Role)
+├── pages/          # Komponen penyusun halaman per-Fitur dan Role
+│   ├── admin/      # Kumpulan halaman Panel Admin
+│   ├── owner/      # Kumpulan halaman Panel Owner
+│   ├── petugas/    # Kumpulan halaman Panel Petugas
+│   └── Login.jsx   # Halaman masuk untuk semua Role
+├── App.js          # Entry point struktur utama dan logika Role-Routing
+└── index.css       # Inject Tailwind CSS (Gaya utama)
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📦 Build untuk Production
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Jika project ini sudah selesai dan siap untuk dideploy (misal ke Vercel atau Netlify):
+```bash
+npm run build
+```
+Perintah ini akan membuat folder `build` yang berisi file aplikasi yang sudah diminifikasikan dan dioptimasi kinerjanya.
