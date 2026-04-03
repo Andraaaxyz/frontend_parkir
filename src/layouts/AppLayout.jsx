@@ -123,9 +123,15 @@ const AppLayout = ({ allowedRoles }) => {
           <button onClick={() => setSidebarOpen(true)} className="md:hidden mr-4 text-gray-600">
             <Menu className="w-6 h-6" />
           </button>
-          <h1 className="text-xl font-semibold text-gray-800 capitalize">
-            {roleMenus.find(m => m.path === location.pathname)?.label || 'Dashboard'}
-          </h1>
+          
+          <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2 md:hidden">
+               <img src={logo} alt="Logo" className="w-8 h-8" />
+            </div>
+            <h1 className="text-xl font-semibold text-gray-800 capitalize">
+              {roleMenus.find(m => m.path === location.pathname)?.label || 'Dashboard'}
+            </h1>
+          </div>
         </header>
 
         <main className="flex-1 overflow-auto p-4 md:p-8 bg-gray-50">
